@@ -1,6 +1,7 @@
 import React from "react";
 import { HiShoppingCart } from "react-icons/hi";
 import { GiDrumKit } from "react-icons/gi";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -10,9 +11,11 @@ const Header = () => {
           <GiDrumKit size={30} />
         </div>
         <div className="flex  pt-4 pl-4">
-          <h1 className="font-title text-4xl tracking-widest text-stone-300">
-            DRUMSHOP
-          </h1>
+          <Link href="/">
+            <h1 className="font-title text-4xl tracking-widest text-stone-300">
+              DRUMSHOP
+            </h1>
+          </Link>
         </div>
       </header>
       <nav className=" flex h-16 items-center justify-between border-b border-slate-500 px-2 md:px-8">
@@ -23,8 +26,10 @@ const Header = () => {
 
           <li className="hover:cursor-pointer hover:underline">Cymbals</li>
         </ul>
-        <div className="hover:text-zinc-600">
-          <HiShoppingCart size={25} />
+        <div className="hover:text-zinc-600 cursor-pointer">
+          <Link href="/cart">
+            <HiShoppingCart size={25} />
+          </Link>
         </div>
       </nav>
     </>

@@ -8,7 +8,7 @@ const CatalogCard = () => {
       <Link href="/product">
         <Image
           src=""
-          className="h-[270px] w-[370px] flex-shrink"
+          className="h-[270px] w-[370px] bg-slate-300 flex-shrink"
           alt="product name"
         />
       </Link>

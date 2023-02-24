@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -18,9 +19,11 @@ export default function Home() {
             </h1>
           </div>
           <div className="flex w-64 justify-center p-2">
-            <button className="border-2 border-slate-500 bg-zinc-700 py-4 px-16 text-xl text-white duration-300 hover:bg-stone-600">
-              Shop Now
-            </button>
+            <Link href="/catalog">
+              <button className="border-2 border-slate-500 bg-zinc-700 py-4 px-16 text-xl text-white duration-300 hover:bg-stone-600">
+                Shop Now
+              </button>
+            </Link>
           </div>
         </div>
       </main>
