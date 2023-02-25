@@ -1,7 +1,8 @@
 import React from "react";
 import CatalogCard from "@/components/catalogcard";
+import { NextPage } from "next";
 
-const Catalog = () => {
+const Catalog: NextPage = () => {
   return (
     <>
       <p className="px-4">Catalog</p>

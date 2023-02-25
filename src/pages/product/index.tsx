@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import { NextPage } from "next";
 
-const Product = () => {
+const Product: NextPage = () => {
   return (
     <div className="lg: mt-8 flex h-screen w-full flex-col items-center justify-start gap-8 lg:mt-20 lg:flex-row lg:items-start lg:justify-evenly">
       <p className="text-2xl font-medium lg:hidden">
