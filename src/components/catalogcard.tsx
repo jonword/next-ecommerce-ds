@@ -16,7 +16,7 @@ const CatalogCard = ({ product }: ProductProps) => {
           src={product.image}
           height={270}
           width={370}
-          className=""
+          className="h-auto w-auto"
           alt={product.name}
         />
       </Link>
