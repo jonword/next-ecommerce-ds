@@ -1,4 +1,5 @@
 import React from "react";
+import { FaBars } from "react-icons/fa";
 import { HiShoppingCart } from "react-icons/hi";
 import { GiDrumKit } from "react-icons/gi";
 import Link from "next/link";
@@ -20,15 +21,13 @@ const Header = () => {
       </header>
       <nav className=" flex h-16 items-center justify-between border-b border-slate-500 px-2 md:px-8">
         <ul className="flex items-center justify-center gap-4 md:gap-8">
-          <li className="hover:cursor-pointer hover:underline">Drum Kits</li>
-
-          <li className="hover:cursor-pointer hover:underline">Snares</li>
-
-          <li className="hover:cursor-pointer hover:underline">Cymbals</li>
+          <li className="hover:cursor-pointer hover:underline">
+            <FaBars size={30} />
+          </li>
         </ul>
         <div className="hover:text-zinc-600 cursor-pointer">
           <Link href="/cart">
-            <HiShoppingCart size={25} />
+            <HiShoppingCart size={30} />
           </Link>
         </div>
       </nav>
