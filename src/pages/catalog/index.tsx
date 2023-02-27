@@ -12,8 +12,8 @@ const Catalog: NextPage = () => {
   if (error) return <div>Failed to load</div>;
   if (isLoading)
     return (
-      <div className="flex justify-center items-center text-xl text-stone-500">
-        Loading...
+      <div className="flex justify-center items-center text-3xl animate-pulse text-stone-500">
+        <h1>Loading...</h1>
       </div>
     );
   if (!data) return null;
