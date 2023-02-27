@@ -10,7 +10,12 @@ const Catalog: NextPage = () => {
   const { data, error, isLoading } = useSWR<Product[]>("/api/catalog", fetcher);
 
   if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center text-xl text-stone-500">
+        Loading...
+      </div>
+    );
   if (!data) return null;
 
   return (
