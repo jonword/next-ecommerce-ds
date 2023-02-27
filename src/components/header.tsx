@@ -30,6 +30,7 @@ const Header = () => {
             <FaBars size={30} />
           </li>
         </ul>
+        {/*TODO: ping animation when item added to cart */}
         <div className="hover:text-zinc-600 cursor-pointer">
           <button onClick={toggleCart}>
             <HiShoppingCart size={30} />
