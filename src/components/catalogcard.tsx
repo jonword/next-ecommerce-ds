@@ -11,7 +11,7 @@ type ProductProps = {
 const CatalogCard = ({ product }: ProductProps) => {
   return (
     <div>
-      <Link href="/product/[id] as={`/product/${product.id}`}">
+      <Link href={`/product/${product.id}`}>
         <Image
           src={product.image}
           height={270}
@@ -22,7 +22,7 @@ const CatalogCard = ({ product }: ProductProps) => {
       </Link>
 
       <div className="flex flex-col items-center p-2">
-        <Link href="/product/[id] as={`/product/${product.id}`}">
+        <Link href={`/product/${product.id}`}>
           <p className="hover:cursor-pointer hover:underline">{product.name}</p>
         </Link>
 
