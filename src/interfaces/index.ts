@@ -10,12 +10,3 @@ export type Product = {
 export type ResponseError = {
   message: string;
 };
-
-export interface CartItem {
-  product: Product;
-  qty: number;
-}
-
-export interface CartState {
-  cart: CartItem[];
-}

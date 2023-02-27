@@ -5,8 +5,6 @@ import type { Product, ResponseError } from "@/interfaces";
 import Image from "next/image";
 import { NextPage } from "next";
 import { formatCurrency } from "@/util/formatcurrency";
-import { useAppDispatch } from "@/redux/hooks";
-import { addToCart } from "@/redux/cartSlice";
 
 const fetcher = async (url: string) => {
   const res = await fetch(url);
@@ -24,9 +22,6 @@ const Product: NextPage = () => {
     () => (query.id ? `/api/product/${query.id}` : null),
     fetcher
   );
-
-  //Redux dispatch
-  const dispatch = useAppDispatch();
 
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>Loading...</div>;
@@ -49,10 +44,7 @@ const Product: NextPage = () => {
         <p>{formatCurrency(data.price)}</p>
         <p>{data.description}</p>
         <div className="flex justify-center">
-          <button
-            className="bg-zinc-800 px-12 py-4 text-white"
-            onClick={() => dispatch(addToCart)}
-          >
+          <button className="bg-zinc-800 px-12 py-4 text-white">
             ADD TO CART
           </button>
         </div>
