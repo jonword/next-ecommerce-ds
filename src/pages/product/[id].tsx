@@ -16,12 +16,14 @@ const fetcher = async (url: string) => {
   return data;
 };
 
-const Product: NextPage = () => {
+const SingleProduct = () => {
   const { query } = useRouter();
   const { data, error, isLoading } = useSWR<Product, ResponseError>(
     () => (query.id ? `/api/product/${query.id}` : null),
     fetcher
   );
+
+  // TODO:  handle 1 item per order logic
 
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>Loading...</div>;
@@ -53,4 +55,4 @@ const Product: NextPage = () => {
   );
 };
 
-export default Product;
+export default SingleProduct;
