@@ -25,8 +25,18 @@ const SingleProduct: NextPage = () => {
 
   // TODO:  handle 1 item per order logic
 
-  if (error) return <div>{error.message}</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (error)
+    return (
+      <div className="text-3xl flex items-center justify-center">
+        Failed to load
+      </div>
+    );
+  if (isLoading)
+    return (
+      <div className="text-3xl flex items-center justify-center text-gray-500 animate-pulse">
+        <h1>Loading...</h1>
+      </div>
+    );
   if (!data) return null;
 
   return (
