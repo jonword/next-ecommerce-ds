@@ -1,23 +1,17 @@
 import React from "react";
+import useSWR from "swr";
 import CatalogCard from "@/components/catalogcard";
 import type { Product } from "@/interfaces";
 
-type Props = {
-  data: Product[];
-};
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/catalog");
-  const data = await res.json();
+const Catalog = () => {
+  const { data, error, isLoading } = useSWR<Product[]>("/api/catalog", fetcher);
 
-  return {
-    props: {
-      data,
-    },
-  };
-}
+  if (error) return <div>Failed to load</div>;
+  if (isLoading) return <div>Loading...</div>;
+  if (!data) return null;
 
-const Catalog = ({ data }: Props) => {
   return (
     <>
       <p className="px-4">Catalog</p>
