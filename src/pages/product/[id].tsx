@@ -16,7 +16,7 @@ const fetcher = async (url: string) => {
   return data;
 };
 
-const SingleProduct = () => {
+const SingleProduct: NextPage = () => {
   const { query } = useRouter();
   const { data, error, isLoading } = useSWR<Product, ResponseError>(
     () => (query.id ? `/api/product/${query.id}` : null),

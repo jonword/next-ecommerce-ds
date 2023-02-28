@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { FaBars, FaLongArrowAltRight } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { HiShoppingCart } from "react-icons/hi";
 import { GiDrumKit } from "react-icons/gi";
 import Link from "next/link";
-import CartSidebarCard from "./cartsidebarcard";
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
