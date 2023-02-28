@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import useSWR from "swr";
 import CatalogCard from "@/components/catalogcard";
 import type { Product } from "@/interfaces";
+import Nav from "@/components/nav";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -24,6 +25,7 @@ const Catalog = () => {
 
   return (
     <>
+      <Nav />
       <div className="m-8" />
       <div className="flex h-screen flex-wrap justify-evenly gap-8 pt-2">
         {data.map((p) => (
