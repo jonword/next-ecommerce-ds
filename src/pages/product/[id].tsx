@@ -54,7 +54,10 @@ const SingleProduct: NextPage = () => {
       <div className="flex flex-col gap-8 pl-4">
         <p className="hidden text-2xl font-medium lg:block">{data.name}</p>
         <p>{formatCurrency(data.price)}</p>
-        <p>{data.description}</p>
+        <div className="w-96">
+          <p>{data.description}</p>
+        </div>
+
         <div className="flex justify-center">
           <button className="bg-zinc-800 px-12 py-4 text-white">
             ADD TO CART

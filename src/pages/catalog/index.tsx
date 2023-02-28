@@ -24,7 +24,6 @@ const Catalog = () => {
 
   return (
     <>
-      <p className="px-4">Catalog</p>
       <div className="m-8" />
       <div className="flex h-screen flex-wrap justify-evenly gap-8 pt-2">
         {data.map((p) => (
