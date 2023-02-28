@@ -9,7 +9,12 @@ const Catalog = () => {
   const { data, error, isLoading } = useSWR<Product[]>("/api/catalog", fetcher);
 
   if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="text-3xl flex items-center justify-center text-gray-500">
+        <h1>Loading...</h1>
+      </div>
+    );
   if (!data) return null;
 
   return (
