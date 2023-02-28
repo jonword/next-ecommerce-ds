@@ -4,20 +4,22 @@ import CatalogCard from "@/components/catalogcard";
 import type { Product } from "@/interfaces";
 import { NextPage } from "next";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+type Props = {
+  data: Product[];
+};
 
-const Catalog: NextPage = () => {
-  const { data, error, isLoading } = useSWR<Product[]>("/api/catalog", fetcher);
+export async function getServerSideProps() {
+  const res = await fetch("http://localhost:3000/api/catalog");
+  const data = await res.json();
 
-  if (error) return <div>Failed to load</div>;
-  if (isLoading)
-    return (
-      <div className="flex justify-center items-center text-3xl animate-pulse text-stone-500">
-        <h1>Loading...</h1>
-      </div>
-    );
-  if (!data) return null;
+  return {
+    props: {
+      data,
+    },
+  };
+}
 
+const Catalog = ({ data }: Props) => {
   return (
     <>
       <p className="px-4">Catalog</p>
