@@ -1,8 +1,6 @@
 import React from "react";
-import useSWR from "swr";
 import CatalogCard from "@/components/catalogcard";
 import type { Product } from "@/interfaces";
-import { NextPage } from "next";
 
 type Props = {
   data: Product[];
