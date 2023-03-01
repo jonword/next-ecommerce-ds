@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
-
 import { GiDrumKit } from "react-icons/gi";
 import Link from "next/link";
-import { Product } from "@/interfaces";
 
-interface Props {
-  product: Product;
-}
-
-const Header = (props: Props) => {
+const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
 
   const toggleMenu = () => setMenuActive(!menuActive);
