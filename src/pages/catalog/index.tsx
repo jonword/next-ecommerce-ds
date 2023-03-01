@@ -3,13 +3,18 @@ import useSWR from "swr";
 import CatalogCard from "@/components/catalogcard";
 import type { Product } from "@/interfaces";
 import Nav from "@/components/nav";
+import { getCatalog } from "@/lib/getCatalog";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+interface Props {
+  data: Product[];
+}
 
-const Catalog = () => {
-  const { data, error, isLoading } = useSWR<Product[]>("/api/catalog", fetcher);
+//const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  if (error)
+const Catalog = ({ data }: Props) => {
+  /*const { data, error, isLoading } = useSWR<Product[]>("/api/catalog", fetcher);*/
+
+  /*if (error)
     return (
       <div className="text-3xl flex items-center justify-center">
         Failed to load
@@ -22,6 +27,7 @@ const Catalog = () => {
       </div>
     );
   if (!data) return null;
+  */
 
   return (
     <>
@@ -35,5 +41,14 @@ const Catalog = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const data = await getCatalog();
+  return {
+    props: {
+      data,
+    },
+  };
+}
 
 export default Catalog;
