@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { products } from "@/data/data";
-import { Product } from "@/interfaces";
+import prisma from "@/lib/prisma";
 
-export default function handler(
-  _req: NextApiRequest,
-  res: NextApiResponse<Product[]>
+export default async function handle(
+  req: NextApiRequest,
+  res: NextApiResponse
 ) {
-  return res.status(200).json(products);
+  const products = await prisma.product.findMany();
+  return res.json(products);
 }
