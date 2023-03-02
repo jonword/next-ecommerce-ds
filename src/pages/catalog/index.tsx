@@ -1,28 +1,15 @@
 import React, { useState } from "react";
-import useSWR from "swr";
 import CatalogCard from "@/components/catalogcard";
-import type { Product } from "@/interfaces";
 import Nav from "@/components/nav";
+import type { Product } from "@/interfaces";
+import { NextPage } from "next";
+import prisma from "prisma";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+type CatalogProps = {
+  data: Product[];
+};
 
-const Catalog = () => {
-  const { data, error, isLoading } = useSWR<Product[]>("/api/catalog", fetcher);
-
-  if (error)
-    return (
-      <div className="text-3xl flex items-center justify-center">
-        Failed to load
-      </div>
-    );
-  if (isLoading)
-    return (
-      <div className="text-3xl flex items-center justify-center text-gray-500 animate-pulse">
-        <h1>Loading...</h1>
-      </div>
-    );
-  if (!data) return null;
-
+const Catalog: NextPage<CatalogProps> = ({ data }) => {
   return (
     <>
       <Nav />
@@ -34,6 +21,15 @@ const Catalog = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  const data = await prisma.product.findMany();
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default Catalog;
