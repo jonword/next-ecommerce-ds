@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import CatalogCard from "@/components/catalogcard";
 import Nav from "@/components/nav";
 import type { Product } from "@/interfaces";
-import { NextPage } from "next";
-import prisma from "prisma";
+import { GetServerSideProps } from "next";
+import prisma from "@/lib/prisma";
 
-type CatalogProps = {
+interface CatalogProps {
   data: Product[];
-};
+}
 
-const Catalog: NextPage<CatalogProps> = ({ data }) => {
+const Catalog = ({ data }: CatalogProps) => {
   return (
     <>
       <Nav />
@@ -23,7 +23,7 @@ const Catalog: NextPage<CatalogProps> = ({ data }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const data = await prisma.product.findMany();
   return {
     props: {
