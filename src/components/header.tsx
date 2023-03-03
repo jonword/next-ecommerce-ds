@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { GiDrumKit } from "react-icons/gi";
 import Link from "next/link";
+import { HiShoppingCart } from "react-icons/hi";
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -22,6 +23,13 @@ const Header = () => {
           </Link>
         </div>
       </header>
+      <nav className="flex relative h-16 justify-end items-center border-b border-slate-200 px-8 md:px-12">
+        <div>
+          <Link href="/cart">
+            <HiShoppingCart size={30} />
+          </Link>
+        </div>
+      </nav>
     </>
   );
 };

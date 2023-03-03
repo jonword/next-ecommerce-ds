@@ -1,5 +1,4 @@
 import CatalogCard from "@/components/catalogcard";
-import Nav from "@/components/nav";
 import type { Products } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import prisma from "@/lib/prisma";
@@ -11,7 +10,6 @@ interface Props {
 const Catalog = ({ data }: Props) => {
   return (
     <>
-      <Nav />
       <div className="flex pl-6 pt-4 items-start justify-start ">
         <ul className="flex gap-4">
           <li className="hover:cursor-pointer hover:underline">Drum Kits</li>
