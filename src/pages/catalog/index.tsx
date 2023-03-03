@@ -13,6 +13,13 @@ const Catalog = ({ data }: CatalogProps) => {
   return (
     <>
       <Nav />
+      <div className="flex pl-4 pt-4 items-start justify-start ">
+        <ul className="flex gap-4">
+          <li className="hover:cursor-pointer hover:underline">Drum Kits</li>
+          <li className="hover:cursor-pointer hover:underline">Snares</li>
+          <li className="hover:cursor-pointer hover:underline">Cymbals</li>
+        </ul>
+      </div>
       <div className="m-8" />
       <div className="flex h-screen flex-wrap justify-evenly gap-8 pt-2">
         {data.map((p) => (
@@ -24,7 +31,7 @@ const Catalog = ({ data }: CatalogProps) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const data = await prisma.product.findMany();
+  const data = await prisma.products.findMany();
   return {
     props: {
       data,

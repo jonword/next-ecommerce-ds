@@ -1,16 +1,18 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { products } from "@/data/data";
-import type { Product, ResponseError } from "@/interfaces";
 
-export default function productHandler(
+import prisma from "@/lib/prisma";
+
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Product | ResponseError>
+  res: NextApiResponse
 ) {
-  const { query } = req;
-  const { id } = query;
-  const product = products.find((p) => p.id === id);
+  const prodId = parseInt(req.query.id as string);
+
+  const product = await prisma.products.findUnique({
+    where: { id: prodId },
+  });
 
   return product
-    ? res.status(200).json(product)
+    ? res.send(product)
     : res.status(404).json({ message: "item not found" });
 }
