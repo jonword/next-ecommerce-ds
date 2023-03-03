@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import { formatCurrency } from "@/util/formatcurrency";
@@ -12,8 +11,6 @@ interface Props {
 }
 
 const SingleProduct = ({ data }: Props) => {
-  const router = useRouter();
-
   // TODO:  handle 1 item per order logic
 
   return (

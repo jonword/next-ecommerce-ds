@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import CatalogCard from "@/components/catalogcard";
 import Nav from "@/components/nav";
 import type { Product } from "@/interfaces";
