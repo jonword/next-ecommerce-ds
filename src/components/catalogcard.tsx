@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { Products } from "@prisma/client";
+import { Product } from "../interfaces/index";
 import { formatCurrency } from "@/util/formatcurrency";
 
 interface Props {
-  product: Products;
+  product: Product;
 }
 
 const CatalogCard = ({ product }: Props) => {
