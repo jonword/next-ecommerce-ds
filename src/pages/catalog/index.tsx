@@ -12,7 +12,7 @@ const Catalog = ({ data }: CatalogProps) => {
   return (
     <>
       <Nav />
-      <div className="flex pl-4 pt-4 items-start justify-start ">
+      <div className="flex pl-6 pt-4 items-start justify-start ">
         <ul className="flex gap-4">
           <li className="hover:cursor-pointer hover:underline">Drum Kits</li>
           <li className="hover:cursor-pointer hover:underline">Snares</li>
