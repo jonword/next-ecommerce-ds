@@ -1,11 +1,12 @@
 import CatalogCard from "@/components/catalogcard";
 import Nav from "@/components/nav";
 import type { Product } from "@/interfaces";
+import type { Products } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import prisma from "@/lib/prisma";
 
 interface CatalogProps {
-  data: Product[];
+  data: Products[];
 }
 
 const Catalog = ({ data }: CatalogProps) => {

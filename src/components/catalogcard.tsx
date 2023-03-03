@@ -2,13 +2,14 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/interfaces";
+import type { Products } from "@prisma/client";
 import { formatCurrency } from "@/util/formatcurrency";
 
-type ProductProps = {
-  product: Product;
-};
+interface Props {
+  product: Products;
+}
 
-const CatalogCard = ({ product }: ProductProps) => {
+const CatalogCard = ({ product }: Props) => {
   return (
     <div>
       <Link href={`/product/${product.id}`}>
