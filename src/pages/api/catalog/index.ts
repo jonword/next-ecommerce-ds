@@ -5,6 +5,6 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const products = await prisma.products.findMany();
-  return res.json(products);
+  const productList = await prisma.products.findMany();
+  return res.json(productList);
 }
