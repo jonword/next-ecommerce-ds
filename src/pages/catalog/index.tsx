@@ -4,11 +4,11 @@ import type { Products } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import prisma from "@/lib/prisma";
 
-interface CatalogProps {
+interface Props {
   data: Products[];
 }
 
-const Catalog = ({ data }: CatalogProps) => {
+const Catalog = ({ data }: Props) => {
   return (
     <>
       <Nav />

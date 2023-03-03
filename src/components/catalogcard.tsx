@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Product } from "@/interfaces";
 import type { Products } from "@prisma/client";
 import { formatCurrency } from "@/util/formatcurrency";
 
