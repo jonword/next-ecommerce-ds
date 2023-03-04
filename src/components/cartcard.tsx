@@ -1,12 +1,16 @@
 import { CartItem } from "@/redux/cartSlice";
 import { formatCurrency } from "@/util/formatcurrency";
 import Image from "next/image";
+import { AppDispatch } from "@/redux/store";
+import { removeFromCart } from "@/redux/cartSlice";
+import { useAppDispatch } from "@/redux/hooks";
 
 interface Props {
   cartItem: CartItem;
 }
 
 const CartCard = ({ cartItem }: Props) => {
+  const dispatch = useAppDispatch();
   return (
     <>
       <div className="my-2 w-full" />
@@ -24,9 +28,11 @@ const CartCard = ({ cartItem }: Props) => {
           <p className="font-semibold">{cartItem.product.name}</p>
           <p className="">{formatCurrency(cartItem.product.price)}</p>
           <div>
-            <p className="text-gray-400 hover:text-red-700 hover:cursor-pointer">
-              remove
-            </p>
+            <button onClick={() => dispatch(removeFromCart(cartItem.product))}>
+              <p className="text-gray-400 hover:text-red-700 hover:cursor-pointer hover:underline">
+                remove
+              </p>
+            </button>
           </div>
         </div>
       </div>
