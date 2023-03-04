@@ -37,7 +37,7 @@ const Header = () => {
             <div
               className={
                 cart.length
-                  ? `quantity-indicator absolute right-7 top-2 flex h-3 w-3 animate-pingOnce items-center justify-center text-gray-100 p-2 rounded-full bg-red-800 text-xs`
+                  ? `quantity-indicator absolute right-7 top-2 flex h-3 w-3 animate-pingOnce items-center justify-center text-gray-100 p-2 rounded-full bg-pink-700 text-xs`
                   : `hidden`
               }
               key={total}
@@ -57,7 +57,7 @@ const Header = () => {
         }
       >
         <div className="flex w-full items-center justify-between p-4">
-          <h1 className="text-3xl">Cart</h1>
+          <h1 className="text-2xl">Cart</h1>
           <h1 className="text-2xl hover:cursor-pointer" onClick={toggleCart}>
             x
           </h1>
