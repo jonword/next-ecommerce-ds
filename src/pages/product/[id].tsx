@@ -10,7 +10,6 @@ import { addToCart } from "@/redux/cartSlice";
 
 interface Props {
   data: Products;
-  item: CartItem;
 }
 
 interface CartItem {
