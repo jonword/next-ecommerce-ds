@@ -53,7 +53,7 @@ const Header = () => {
         className={
           !isActive
             ? `fixed right-[-100%] top-0 flex h-screen w-full max-w-[400px] flex-col bg-white/100 p-1 px-4 shadow-lg shadow-gray-300 duration-700`
-            : `fixed right-0 top-0 flex h-full w-full max-w-[400px] flex-col bg-white/100 p-1 px-4  shadow-sm shadow-gray-300 duration-500`
+            : `fixed right-0 top-0 flex h-full overflow-y-scroll w-full max-w-[400px] flex-col bg-white/100 p-1 px-4 pb-12 shadow-sm shadow-gray-300 duration-500`
         }
       >
         <div className="flex w-full items-center justify-between p-4">
@@ -89,11 +89,6 @@ const Header = () => {
               >
                 <p>CHECK OUT</p>
                 <FaLongArrowAltRight />
-              </button>
-            </Link>
-            <Link href="/cart">
-              <button className="flex" onClick={toggleCart}>
-                <p className="border-b-2 border-gray-900 text-sm">VIEW CART</p>
               </button>
             </Link>
           </div>
