@@ -14,9 +14,9 @@ const CatalogCard = ({ product }: Props) => {
       <Link href={`/product/${product.id}`}>
         <Image
           src={product.image}
-          height={270}
-          width={370}
-          className="h-auto w-auto"
+          height={280}
+          width={380}
+          className=""
           alt={product.name}
         />
       </Link>
