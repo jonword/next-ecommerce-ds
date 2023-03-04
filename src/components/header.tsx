@@ -37,7 +37,7 @@ const Header = () => {
             <div
               className={
                 cart.length
-                  ? `quantity-indicator absolute right-7 top-2 flex h-3 w-3 animate-pingOnce items-center justify-center text-gray-100 p-2 rounded-full bg-pink-700 text-xs`
+                  ? `quantity-indicator absolute right-12 top-2 flex h-2 w-2 animate-pingOnce items-center justify-center text-gray-100 p-2 rounded-full bg-pink-700 text-xs`
                   : `hidden`
               }
               key={total}
