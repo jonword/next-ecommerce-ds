@@ -5,13 +5,21 @@ import { BsArrowLeftShort } from "react-icons/bs";
 import { GetServerSideProps } from "next";
 import type { Products } from "@prisma/client";
 import prisma from "@/lib/prisma";
+import { useAppDispatch } from "@/redux/hooks";
+import { addToCart } from "@/redux/cartSlice";
 
 interface Props {
   data: Products;
+  item: CartItem;
+}
+
+interface CartItem {
+  product: Products;
+  qty: number;
 }
 
 const SingleProduct = ({ data }: Props) => {
-  // TODO:  handle 1 item per order logic
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -20,7 +28,7 @@ const SingleProduct = ({ data }: Props) => {
           <BsArrowLeftShort size={25} />
         </Link>
         <Link href="/catalog">
-          <p className="">back to catalog</p>
+          <p>back to catalog</p>
         </Link>
       </div>
 
@@ -43,7 +51,10 @@ const SingleProduct = ({ data }: Props) => {
           </div>
 
           <div className="flex justify-center">
-            <button className="bg-zinc-800 px-12 py-4 text-white">
+            <button
+              className="bg-zinc-800 px-12 py-4 text-white"
+              onClick={() => dispatch(addToCart(data))}
+            >
               ADD TO CART
             </button>
           </div>
