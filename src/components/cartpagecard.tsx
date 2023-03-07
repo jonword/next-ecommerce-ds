@@ -30,7 +30,7 @@ const CartPageCard = ({ cartItem }: Props) => {
         </div>
         <div>
           <button onClick={() => dispatch(removeFromCart(cartItem.product))}>
-            <p className="text-gray-400 hover:text-red-700 hover:cursor-pointer hover:underline">
+            <p className="text-gray-400 hover:text-red-700 hover:cursor-pointer hover:underline pr-4">
               remove
             </p>
           </button>

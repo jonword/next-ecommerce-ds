@@ -27,11 +27,11 @@ const SingleProduct = ({ data }: Props) => {
           <BsArrowLeftShort size={25} />
         </Link>
         <Link href="/catalog">
-          <p>back to catalog</p>
+          <p className="hover:underline">back to catalog</p>
         </Link>
       </div>
 
-      <div className="mt-8 flex h-screen w-full flex-col items-center justify-start gap-8 lg:mt-20 lg:flex-row lg:items-start lg:justify-evenly">
+      <div className="mt-2 flex h-screen w-full flex-col items-center justify-start gap-8 lg:mt-20 lg:flex-row lg:items-start lg:justify-evenly">
         <p className="text-2xl font-medium lg:hidden">{data.name}</p>
         <div>
           <Image
@@ -51,7 +51,7 @@ const SingleProduct = ({ data }: Props) => {
 
           <div className="flex justify-center">
             <button
-              className="bg-zinc-800 px-12 py-4 text-white"
+              className="bg-zinc-800 duration-150 hover:bg-slate-600 px-12 py-4 text-white"
               onClick={() => dispatch(addToCart(data))}
             >
               ADD TO CART
