@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
       <main className="h-screen w-full">
         <div className=" mt-20 flex h-full w-full flex-col items-center">
-          <div className="flex flex-col gap-4 p-24 duration-700 ease-out sm:flex-row">
+          <div className="flex flex-col gap-4 p-24 duration-700 ease-out delay-500 sm:flex-row">
             <p className="text-3xl">Welcome to</p>
             <h1 className="font-title text-5xl font-bold tracking-widest overline decoration-stone-400">
               Drumshop
