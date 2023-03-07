@@ -6,7 +6,7 @@ import { HiShoppingCart } from "react-icons/hi";
 import { useAppSelector } from "@/redux/hooks";
 import { totalCartItemSelector, totalPriceSelector } from "@/redux/cartSlice";
 import { formatCurrency } from "@/util/formatcurrency";
-import CartCard from "./cartcard";
+import CartCard from "./sidebarcartcard";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex h-28 w-full items-end pl-8 justify-start bg-stone-800 pb-6 shadow-sm shadow-zinc-500 ">
+      <header className="flex h-20 w-full items-end pl-8 justify-start bg-stone-800 pb-6 shadow-sm shadow-zinc-500 ">
         <div className=" text-yellow-100">
           <GiDrumKit size={30} />
         </div>
@@ -30,7 +30,7 @@ const Header = () => {
           </Link>
         </div>
       </header>
-      <nav className="flex relative h-16 justify-end items-center border-b border-slate-200 px-8 md:px-12">
+      <nav className="flex relative h-16 justify-end items-center border-b border-slate-200 px-12">
         <div>
           <button onClick={toggleCart}>
             <HiShoppingCart size={30} />
@@ -52,13 +52,13 @@ const Header = () => {
       <div
         className={
           !isActive
-            ? `fixed right-[-100%] top-0 flex h-screen w-full max-w-[400px] flex-col bg-white/100 p-1 px-4 shadow-lg shadow-gray-300 duration-700`
-            : `fixed right-0 top-0 flex h-full overflow-y-scroll w-full max-w-[400px] flex-col bg-white/100 p-1 px-4 pb-12 shadow-sm shadow-gray-300 duration-500`
+            ? `fixed right-[-100%] top-0 flex h-screen w-full max-w-[400px] flex-col bg-white/100 p-1 px-4 shadow-lg shadow-gray-800 duration-700`
+            : `fixed right-0 top-0 flex h-full overflow-y-scroll w-full max-w-[400px] flex-col bg-white/100 p-1 px-4 pb-12 shadow-md shadow-gray-500 duration-500`
         }
       >
         <div className="flex w-full items-center justify-between p-4">
           <h1 className="text-2xl">Cart</h1>
-          <h1 className="text-2xl hover:cursor-pointer" onClick={toggleCart}>
+          <h1 className="text-3xl hover:cursor-pointer" onClick={toggleCart}>
             x
           </h1>
         </div>
@@ -75,11 +75,8 @@ const Header = () => {
         {/*===SUBTOTAL & CHECKOUT BUTTON */}
         <div className={cart.length ? `` : `hidden`}>
           <div className="mt-4 flex justify-between px-4">
-            <p>SUBTOTAL</p>
+            <p>TOTAL</p>
             <p>{formatCurrency(subtotal)}</p>
-          </div>
-          <div className="mt-4 flex justify-start pl-4 text-gray-500">
-            <p>Taxes and shipping calculated at checkout</p>
           </div>
           <div className="mt-4 flex flex-col items-center justify-center gap-3">
             <Link href="/checkout">
@@ -89,6 +86,14 @@ const Header = () => {
               >
                 <p>CHECK OUT</p>
                 <FaLongArrowAltRight />
+              </button>
+            </Link>
+            <Link href="/cart">
+              <button
+                className="flex items-center py-1 px-2 border-b-2 border-gray-900"
+                onClick={toggleCart}
+              >
+                VIEW CART
               </button>
             </Link>
           </div>
