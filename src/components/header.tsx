@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBars, FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import { GiDrumKit } from "react-icons/gi";
 import Link from "next/link";
 import { HiShoppingCart } from "react-icons/hi";
