@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { GiDrumKit } from "react-icons/gi";
 import Link from "next/link";
+import { Playfair_Display } from "next/font/google";
 import { HiShoppingCart } from "react-icons/hi";
 import { useAppSelector } from "@/redux/hooks";
 import { totalCartItemSelector, totalPriceSelector } from "@/redux/cartSlice";
 import { formatCurrency } from "@/util/formatcurrency";
 import CartCard from "./sidebarcartcard";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -24,7 +30,9 @@ const Header = () => {
         </div>
         <div className="flex  pt-4 pl-4">
           <Link href="/">
-            <h1 className="font-title text-4xl tracking-widest text-stone-300">
+            <h1
+              className={` ${playfair.className} font-title text-4xl tracking-widest text-stone-300`}
+            >
               DRUMSHOP
             </h1>
           </Link>
