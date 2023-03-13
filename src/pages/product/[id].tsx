@@ -20,6 +20,8 @@ interface CartItem {
 const SingleProduct = ({ data }: Props) => {
   const dispatch = useAppDispatch();
 
+  // TODO: Limit one item per order
+
   return (
     <>
       <div className="flex pl-4 pt-4 items-center">

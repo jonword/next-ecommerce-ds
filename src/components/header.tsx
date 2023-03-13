@@ -99,7 +99,7 @@ const Header = () => {
             </button>
             <Link href="/cart">
               <button
-                className="flex items-center py-1 px-2 border-b-2 border-gray-900"
+                className="flex items-center py-1 px-2 border-b-2 border-gray-900 duration-100 hover:text-zinc-600"
                 onClick={toggleCart}
               >
                 VIEW CART
