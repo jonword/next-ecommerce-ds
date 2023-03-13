@@ -27,11 +27,9 @@ const Cart = () => {
             <p>Taxes and shipping calculated at checkout</p>
           </div>
           <div className="flex justify-center">
-            <Link href="/checkout">
-              <button className="flex items-center gap-2 bg-gray-900 py-4 px-20 text-white duration-300 hover:bg-gray-700">
-                <p>CHECK OUT</p>
-              </button>
-            </Link>
+            <button className="flex items-center gap-2 bg-gray-900 py-4 px-20 text-white duration-300 hover:bg-gray-700">
+              <p>CHECK OUT</p>
+            </button>
           </div>
         </div>
 

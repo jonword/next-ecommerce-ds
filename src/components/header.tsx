@@ -79,15 +79,13 @@ const Header = () => {
             <p>{formatCurrency(subtotal)}</p>
           </div>
           <div className="mt-4 flex flex-col items-center justify-center gap-3">
-            <Link href="/checkout">
-              <button
-                className="flex items-center gap-2 bg-gray-900 py-4 px-20 text-white duration-300 hover:bg-gray-700"
-                onClick={toggleCart}
-              >
-                <p>CHECK OUT</p>
-                <FaLongArrowAltRight />
-              </button>
-            </Link>
+            <button
+              className="flex items-center gap-2 bg-gray-900 py-4 px-20 text-white duration-300 hover:bg-gray-700"
+              onClick={toggleCart}
+            >
+              <p>CHECK OUT</p>
+              <FaLongArrowAltRight />
+            </button>
             <Link href="/cart">
               <button
                 className="flex items-center py-1 px-2 border-b-2 border-gray-900"
