@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex h-20 w-full items-end pl-8 justify-start bg-stone-800 pb-6 shadow-sm shadow-zinc-500 ">
+      <header className="flex h-20 w-full items-end pl-8 justify-start bg-zinc-800 pb-6 shadow-sm shadow-zinc-500 ">
         <div className=" text-yellow-100">
           <GiDrumKit size={30} />
         </div>
@@ -41,7 +41,10 @@ const Header = () => {
       <nav className="flex relative h-16 justify-end items-center border-b border-slate-200 px-12">
         <div>
           <button onClick={toggleCart}>
-            <HiShoppingCart size={30} />
+            <HiShoppingCart
+              size={30}
+              className="text-zinc-800 hover:text-zinc-600 duration-200"
+            />
             <div
               className={
                 cart.length
@@ -88,7 +91,7 @@ const Header = () => {
           </div>
           <div className="mt-4 flex flex-col items-center justify-center gap-3">
             <button
-              className="flex items-center gap-2 bg-gray-900 py-4 px-20 text-white duration-300 hover:bg-gray-700"
+              className="flex items-center gap-2 bg-zinc-800 py-4 px-20 text-white duration-300 hover:bg-gray-700"
               onClick={toggleCart}
             >
               <p>CHECK OUT</p>

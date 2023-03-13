@@ -37,7 +37,7 @@ const Catalog = ({ data }: Props) => {
         </div>
       </div>
       <div className="m-8" />
-      <div className="flex h-screen flex-wrap justify-evenly gap-8 pt-2">
+      <div className="flex h-full flex-wrap justify-evenly gap-8 pt-2 mb-16">
         {data.map((p) => (
           <CatalogCard key={p.id} product={p} />
         ))}

@@ -51,7 +51,7 @@ const SingleProduct = ({ data }: Props) => {
 
           <div className="flex justify-center">
             <button
-              className="bg-zinc-800 duration-150 hover:bg-slate-600 px-12 py-4 text-white"
+              className="bg-zinc-800 duration-300 shadow-sm shadow-slate-600 hover:bg-zinc-600 px-12 py-4 text-white"
               onClick={() => dispatch(addToCart(data))}
             >
               ADD TO CART
