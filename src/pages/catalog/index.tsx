@@ -13,29 +13,7 @@ const Catalog = ({ data }: Props) => {
 
   return (
     <>
-      <div className="flex pl-6 pt-4 items-start justify-start ">
-        <div className="flex gap-4">
-          <button className="hover:cursor-pointer hover:underline">All</button>
-          <button
-            className="hover:cursor-pointer hover:underline"
-            value="drumkit"
-          >
-            Drum Kits
-          </button>
-          <button
-            className="hover:cursor-pointer hover:underline"
-            value="snare"
-          >
-            Snares
-          </button>
-          <button
-            className="hover:cursor-pointer hover:underline"
-            value="cymbal"
-          >
-            Cymbals
-          </button>
-        </div>
-      </div>
+      <div className="flex pl-6 pt-4 items-start justify-start "></div>
       <div className="m-8" />
       <div className="flex h-full flex-wrap justify-evenly gap-8 pt-2 mb-16">
         {data.map((p) => (
