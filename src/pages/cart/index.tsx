@@ -4,6 +4,7 @@ import { totalCartItemSelector, totalPriceSelector } from "@/redux/cartSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { formatCurrency } from "@/util/formatcurrency";
 import Link from "next/link";
+import { BsArrowLeftShort } from "react-icons/bs";
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.cart);
@@ -39,6 +40,16 @@ const Cart = () => {
       ) : (
         <div>
           <h1 className="mt-4 pl-4 text-center text-xl">Your cart is empty.</h1>
+          <div className="flex pl-4 pt-4 justify-center items-center">
+            <Link href="/catalog">
+              <BsArrowLeftShort size={25} className="animate-bounce" />
+            </Link>
+            <Link href="/catalog">
+              <p className="hover:underline text-xl font-semibold">
+                back to catalog
+              </p>
+            </Link>
+          </div>
         </div>
       )}
     </div>
