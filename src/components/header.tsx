@@ -64,7 +64,7 @@ const Header = () => {
         className={
           !isActive
             ? `fixed right-[-100%] top-0 flex h-screen w-full max-w-[400px] flex-col bg-white/100 p-1 px-4 shadow-lg shadow-gray-800 duration-700`
-            : `fixed right-0 top-0 flex h-full overflow-y-scroll w-full max-w-[400px] flex-col bg-white/100 p-1 px-4 pb-12 shadow-md shadow-gray-500 duration-500`
+            : `fixed right-0 top-0 flex h-full overflow-y-scroll w-full max-w-[400px] flex-col bg-white/100 p-1 px-4 pb-12 shadow-md shadow-gray-500 delay-75 duration-500`
         }
       >
         <div className="flex w-full items-center justify-between p-4">
