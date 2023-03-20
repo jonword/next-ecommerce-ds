@@ -15,10 +15,12 @@ const Login = () => {
           <button className="border w-12 text-white p-1 bg-zinc-700 hover:bg-emerald-800 duration-150">
             Login
           </button>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             <p>Dont have an account?</p>
             <Link href="/signup">
-              <button className="hover:underline"> Sign up</button>
+              <button className="hover:underline">
+                <span className="text-lg">Sign up</span>
+              </button>
             </Link>
           </div>
         </div>
