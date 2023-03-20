@@ -39,26 +39,29 @@ const Header = () => {
         </div>
       </header>
       <nav className="flex relative h-16 justify-end items-center border-b border-slate-200 px-12">
-        <div className="flex items-center justify-center gap-2">
-          <button onClick={toggleCart}>
-            <HiShoppingCart
-              size={25}
-              className="text-zinc-800 hover:text-zinc-600 duration-200"
-            />
-            <div
-              className={
-                cart.length
-                  ? `quantity-indicator absolute right-10 top-1 flex h-2 w-2 animate-pingOnce items-center justify-center text-gray-100 p-2 rounded-full bg-pink-700 text-xs`
-                  : `hidden`
-              }
-              key={total}
-            >
-              {total}
-            </div>
-          </button>
+        <div className="flex items-center justify-center">
           <Link href="/login">
             <button>
-              <HiUser size={25} />
+              <HiUser
+                size={25}
+                className="text-zinc-800 hover:text-zinc-600 duration-200"
+              />
+            </button>
+            <button onClick={toggleCart}>
+              <HiShoppingCart
+                size={25}
+                className="text-zinc-800 hover:text-zinc-600 duration-200"
+              />
+              <div
+                className={
+                  cart.length
+                    ? `quantity-indicator absolute right-10 top-1 flex h-2 w-2 animate-pingOnce items-center justify-center text-gray-100 p-2 rounded-full bg-pink-700 text-xs`
+                    : `hidden`
+                }
+                key={total}
+              >
+                {total}
+              </div>
             </button>
           </Link>
         </div>
