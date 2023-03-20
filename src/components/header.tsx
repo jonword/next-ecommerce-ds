@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight, FaWindowClose } from "react-icons/fa";
 import { GiDrumKit } from "react-icons/gi";
 import Link from "next/link";
 import { Playfair_Display } from "next/font/google";
@@ -55,13 +55,11 @@ const Header = () => {
               <div
                 className={
                   cart.length
-                    ? `quantity-indicator absolute right-10 top-1 flex h-2 w-2 animate-pingOnce items-center justify-center text-gray-100 p-2 rounded-full bg-pink-700 text-xs`
+                    ? `quantity-indicator absolute right-11 top-3 flex h-2 w-2 animate-pingOnce items-center justify-center text-gray-100 rounded-full bg-pink-700 text-xs`
                     : `hidden`
                 }
                 key={total}
-              >
-                {total}
-              </div>
+              ></div>
             </button>
           </Link>
         </div>
@@ -77,9 +75,9 @@ const Header = () => {
       >
         <div className="flex w-full items-center justify-between p-4">
           <h1 className="text-2xl">Cart</h1>
-          <h1 className="text-3xl hover:cursor-pointer" onClick={toggleCart}>
-            x
-          </h1>
+          <button className="text-2xl hover:text-rose-700" onClick={toggleCart}>
+            <FaWindowClose />
+          </button>
         </div>
         <div className="mt-4 border-b border-gray-500" />
         {cart.length ? (
