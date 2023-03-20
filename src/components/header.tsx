@@ -3,7 +3,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { GiDrumKit } from "react-icons/gi";
 import Link from "next/link";
 import { Playfair_Display } from "next/font/google";
-import { HiShoppingCart } from "react-icons/hi";
+import { HiShoppingCart, HiUser } from "react-icons/hi";
 import { useAppSelector } from "@/redux/hooks";
 import { totalCartItemSelector, totalPriceSelector } from "@/redux/cartSlice";
 import { formatCurrency } from "@/util/formatcurrency";
@@ -39,10 +39,10 @@ const Header = () => {
         </div>
       </header>
       <nav className="flex relative h-16 justify-end items-center border-b border-slate-200 px-12">
-        <div>
+        <div className="flex items-center justify-center gap-2">
           <button onClick={toggleCart}>
             <HiShoppingCart
-              size={30}
+              size={25}
               className="text-zinc-800 hover:text-zinc-600 duration-200"
             />
             <div
@@ -56,6 +56,11 @@ const Header = () => {
               {total}
             </div>
           </button>
+          <Link href="/login">
+            <button>
+              <HiUser size={25} />
+            </button>
+          </Link>
         </div>
       </nav>
 
