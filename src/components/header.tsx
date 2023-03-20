@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex h-20 w-full items-end pl-8 justify-start bg-zinc-800 pb-6 shadow-sm shadow-zinc-500 ">
+      <header className="flex h-20 w-full items-end pl-8 justify-center bg-zinc-800 pb-6 shadow-sm shadow-zinc-500 ">
         <div className=" text-yellow-100">
           <GiDrumKit size={30} />
         </div>
