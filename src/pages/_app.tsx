@@ -5,19 +5,26 @@ import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 import { Barlow } from "next/font/google";
 
+import { SessionProvider } from "next-auth/react";
+
 const barlow = Barlow({
   subsets: ["latin"],
   weight: "400",
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
-    <Provider store={store}>
-      <Layout>
-        <main className={barlow.className}>
-          <Component {...pageProps} />
-        </main>
-      </Layout>
-    </Provider>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <Layout>
+          <main className={barlow.className}>
+            <Component {...pageProps} />
+          </main>
+        </Layout>
+      </Provider>
+    </SessionProvider>
   );
 }
