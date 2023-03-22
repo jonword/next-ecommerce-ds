@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CartPageCard from "@/components/cartpagecard";
 import { totalCartItemSelector, totalPriceSelector } from "@/redux/cartSlice";
 import { useAppSelector } from "@/redux/hooks";
@@ -6,10 +6,30 @@ import { formatCurrency } from "@/util/formatcurrency";
 import Link from "next/link";
 import { BsArrowLeftShort } from "react-icons/bs";
 
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
+
 const Cart = () => {
   const cart = useAppSelector((state) => state.cart);
   const total = useAppSelector(totalCartItemSelector);
   const subtotal = useAppSelector(totalPriceSelector);
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    if (query.get("success")) {
+      console.log("Order laced! You will recieve an email confirmation.");
+    }
+
+    if (query.get("canceled")) {
+      console.log(
+        "Order canceled -- continue to shop around and checkout when you’re ready."
+      );
+    }
+  }, []);
+
   return (
     <div>
       {cart.length ? (
@@ -38,11 +58,19 @@ const Cart = () => {
               <div className="mt-4 flex justify-start text-gray-500">
                 <p>Taxes and shipping calculated at checkout</p>
               </div>
-              <div className="flex justify-center">
-                <button className="flex items-center gap-2 bg-gray-900 py-4 px-20 text-white duration-300 hover:bg-gray-700">
+              <form
+                className="flex justify-center"
+                action="/api/checkout_sessions"
+                method="POST"
+              >
+                <button
+                  className="flex items-center gap-2 bg-gray-900 py-4 px-20 text-white duration-300 hover:bg-gray-700"
+                  type="submit"
+                  role="link"
+                >
                   <p>CHECK OUT</p>
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </>
