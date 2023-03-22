@@ -8,9 +8,10 @@ import { BsArrowLeftShort } from "react-icons/bs";
 
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(
-  "process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
-);
+const PUBLIC_KEY =
+  "pk_test_51Mj49hKjDBwlKL9TPPHkhl6d2LIeKFDtBgiHckENxuKrTZSofjPwoIr6DanvJPvNQZFPw81N0k6FaCtawH1jDVGp00XN0NbOOu";
+
+const stripePromise = loadStripe(PUBLIC_KEY);
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.cart);
