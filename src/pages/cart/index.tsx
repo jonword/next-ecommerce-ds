@@ -15,6 +15,15 @@ const Cart = () => {
       {cart.length ? (
         <>
           <h1 className="lg:mx-60 mt-4 text-3xl pl-4">My Cart</h1>
+          <div className="lg:mx-60 mt-4 pl-4">
+            <Link href="/catalog">
+              <button className="flex hover:underline text-lg font-semibold items-center">
+                <BsArrowLeftShort size={25} />
+                <p>continue shopping</p>
+              </button>
+            </Link>
+          </div>
+
           <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:mx-60 pb-12">
             <div className="w-full">
               {cart.map((item) => (
