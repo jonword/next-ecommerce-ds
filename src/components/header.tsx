@@ -56,7 +56,7 @@ const Header = () => {
             <div
               className={
                 cart.length
-                  ? `quantity-indicator absolute right-11 top-3 flex h-2 w-2 animate-pingOnce items-center justify-center text-gray-100 rounded-full bg-pink-700 text-xs`
+                  ? `quantity-indicator absolute right-12 top-3.5 flex h-2 w-2 animate-pingOnce items-center justify-center text-gray-100 rounded-full bg-pink-700 text-xs`
                   : `hidden`
               }
               key={total}
