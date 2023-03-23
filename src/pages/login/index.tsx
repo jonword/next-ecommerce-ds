@@ -12,7 +12,7 @@ const Login = () => {
           <input className="border px-1 border-gray-600 rounded-sm" />
         </form>
         <div className="mt-2 flex flex-col gap-1 items-center">
-          <button className="border w-12 text-white p-1 bg-zinc-700 hover:bg-emerald-800 duration-150">
+          <button className="border text-white p-1 px-3 bg-zinc-700 hover:bg-emerald-800 duration-150">
             Login
           </button>
           <div className="flex gap-2 items-center">
