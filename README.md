@@ -17,6 +17,10 @@ https://drumshop.vercel.app/
 
 [![My Skills](https://skillicons.dev/icons?i=nextjs,ts,redux,supabase,prisma,tailwind,)](https://skillicons.dev)
 
+## Usage
+To go through the checkout process, follow these steps:
+  1. Under Card Information use 4242 4242 4242 4242 for the card number, 12/34 for the expiration date, 567 for the ZIP Code. 
+
 
 
 ## Roadmap
