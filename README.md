@@ -10,6 +10,7 @@ https://drumshop.vercel.app/
 - View catalog of products
 - Add to/remove items from cart
 - View items in cart
+- Checkout via Stripe
 
 
 ## Tech Stack
@@ -22,4 +23,3 @@ https://drumshop.vercel.app/
 
 - Users will be able to create and account for future purchases and view orders.
 
-- Checkout feature via Stripe
