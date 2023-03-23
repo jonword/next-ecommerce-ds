@@ -99,13 +99,20 @@ const Header = () => {
             <p>{formatCurrency(subtotal)}</p>
           </div>
           <div className="mt-4 flex flex-col items-center justify-center gap-3">
-            <button
-              className="flex items-center gap-2 bg-zinc-800 py-4 px-20 text-white duration-300 hover:bg-zinc-700"
-              onClick={toggleCart}
+            <form
+              className="flex justify-center"
+              action="/api/checkout_sessions"
+              method="POST"
             >
-              <p>CHECK OUT</p>
-              <FaLongArrowAltRight />
-            </button>
+              <button
+                className="flex items-center gap-2 bg-zinc-800 py-4 px-20 text-white duration-300 hover:bg-zinc-700"
+                type="submit"
+                role="link"
+              >
+                <p>CHECK OUT</p>
+                <FaLongArrowAltRight />
+              </button>
+            </form>
             <Link href="/cart">
               <button
                 className="flex items-center py-1 px-2 border-b-2 border-gray-900 duration-100 hover:text-zinc-600"
