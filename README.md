@@ -19,7 +19,11 @@ https://drumshop.vercel.app/
 
 ## Usage
 To go through the checkout process, follow these steps:
-  1. Under Card Information use 4242 4242 4242 4242 for the card number, 12/34 for the expiration date, 567 for the ZIP Code. 
+  1. Under Card Information use 4242 4242 4242 4242 for the card number
+  2. Whatever you would like for Name on card
+  3. 12/34 for the expiration date, and 567 for the CVC
+  4. United States for the country or regeion, and 12345 for the ZIP Code.
+  5. Press Pay
 
 
 
