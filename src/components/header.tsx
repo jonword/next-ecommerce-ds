@@ -75,7 +75,10 @@ const Header = () => {
       >
         <div className="flex w-full items-center justify-between p-4">
           <h1 className="text-2xl">Cart</h1>
-          <button className="text-2xl hover:text-rose-700" onClick={toggleCart}>
+          <button
+            className="text-2xl duration-100 hover:text-rose-700"
+            onClick={toggleCart}
+          >
             <FaWindowClose />
           </button>
         </div>
@@ -97,7 +100,7 @@ const Header = () => {
           </div>
           <div className="mt-4 flex flex-col items-center justify-center gap-3">
             <button
-              className="flex items-center gap-2 bg-zinc-800 py-4 px-20 text-white duration-300 hover:bg-gray-700"
+              className="flex items-center gap-2 bg-zinc-800 py-4 px-20 text-white duration-300 hover:bg-zinc-700"
               onClick={toggleCart}
             >
               <p>CHECK OUT</p>

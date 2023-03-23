@@ -7,6 +7,7 @@ import Link from "next/link";
 import { BsArrowLeftShort } from "react-icons/bs";
 
 import { loadStripe } from "@stripe/stripe-js";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -64,11 +65,12 @@ const Cart = () => {
                 method="POST"
               >
                 <button
-                  className="flex items-center gap-2 bg-gray-900 py-4 px-20 text-white duration-300 hover:bg-gray-700"
+                  className="flex items-center gap-2 bg-zinc-800 py-4 px-20 text-white duration-300 hover:bg-zinc-700"
                   type="submit"
                   role="link"
                 >
                   <p>CHECK OUT</p>
+                  <FaLongArrowAltRight />
                 </button>
               </form>
             </div>
