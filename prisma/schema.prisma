@@ -16,3 +16,12 @@ model Products {
   description String
 }
 
+model User {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  firstName String
+  lastName String
+  email String @unique
+  password String
+}
