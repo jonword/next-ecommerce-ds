@@ -3,6 +3,7 @@ import Link from "next/link";
 import { z, ZodType } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import prisma from "@/lib/prisma";
 
 type SignupData = {
   firstName: string;
@@ -36,8 +37,13 @@ const SignUp = () => {
     resolver: zodResolver(signupSchema),
   });
 
-  const submitData = (data: SignupData) => {
+  const submitData = async (data: SignupData) => {
     console.log("USER CREATED", data);
+    try {
+      await fetch("/api/users");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -46,6 +52,7 @@ const SignUp = () => {
         <form
           className="flex flex-col w-60 gap-2"
           onSubmit={handleSubmit(submitData)}
+          method="POST"
         >
           <label>First Name:</label>
           {errors.firstName && (
