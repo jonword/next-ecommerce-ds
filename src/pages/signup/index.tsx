@@ -17,7 +17,7 @@ const SignUp = () => {
   const signupSchema: ZodType<SignupData> = z
     .object({
       firstName: z.string().min(2).max(30),
-      lastName: z.string(),
+      lastName: z.string().min(2).max(30),
       email: z.string().email(),
       username: z.string().min(2).max(30),
       password: z.string().min(5).max(20),
@@ -28,7 +28,11 @@ const SignUp = () => {
       path: ["confirmPassword"],
     });
 
-  const { register, handleSubmit } = useForm<SignupData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignupData>({
     resolver: zodResolver(signupSchema),
   });
 
@@ -37,43 +41,64 @@ const SignUp = () => {
   };
 
   return (
-    <div className="h-[500px] flex items-center justify-center">
+    <div className="min-h-[500px] border flex items-center justify-center">
       <div className="flex flex-col items-center justify-center p-4">
         <form
           className="flex flex-col w-60 gap-2"
           onSubmit={handleSubmit(submitData)}
         >
           <label>First Name:</label>
+          {errors.firstName && (
+            <span className="text-red-600">{errors.firstName.message}</span>
+          )}
           <input
             className="border px-1 border-gray-600 rounded-sm"
             type="text"
             {...register("firstName")}
           />
+
           <label>Last Name:</label>
+          {errors.lastName && (
+            <span className="text-red-600">{errors.lastName.message}</span>
+          )}
           <input
             className="border px-1 border-gray-600 rounded-sm"
             type="text"
             {...register("lastName")}
           />
           <label>Email:</label>
+          {errors.email && (
+            <span className="text-red-600">{errors.email.message}</span>
+          )}
           <input
             className="border px-1 border-gray-600 rounded-sm"
             type="email"
             {...register("email")}
           />
           <label>Username:</label>
+          {errors.username && (
+            <span className="text-red-600">{errors.username.message}</span>
+          )}
           <input
             className="border px-1 border-gray-600 rounded-sm"
             type="text"
             {...register("username")}
           />
           <label>Password:</label>
+          {errors.password && (
+            <span className="text-red-600">{errors.password.message}</span>
+          )}
           <input
             className="border px-1 border-gray-600 rounded-sm"
             type="password"
             {...register("password")}
           />
           <label>Confirm Password:</label>
+          {errors.confirmPassword && (
+            <span className="text-red-600">
+              {errors.confirmPassword.message}
+            </span>
+          )}
           <input
             className="border px-1 border-gray-600 rounded-sm"
             type="password"
