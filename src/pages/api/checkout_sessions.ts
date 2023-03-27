@@ -18,7 +18,7 @@ export default async function handler(
         ],
         mode: "payment",
         success_url: `${req.headers.origin}/?success=true`,
-        cancel_url: `${req.headers.origin}/?canceled=true`,
+        cancel_url: `${req.headers.origin}/cart`,
       });
       res.redirect(303, session.url);
     } catch (err: any) {
