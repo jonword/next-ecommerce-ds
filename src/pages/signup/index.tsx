@@ -38,7 +38,6 @@ const SignUp = () => {
   });
 
   const submitData = async (data: SignupData) => {
-    console.log("USER CREATED", data);
     try {
       await fetch("/api/users", {
         method: "POST",
