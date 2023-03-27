@@ -40,11 +40,10 @@ const SignUp = () => {
   const submitData = async (data: SignupData) => {
     console.log("USER CREATED", data);
     try {
-      const body = { data };
       await fetch("/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+        body: JSON.stringify(data),
       });
     } catch (error) {
       console.log(error);
