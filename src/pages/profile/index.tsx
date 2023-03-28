@@ -1,7 +1,6 @@
 import React from "react";
 import { useSession, signOut, getSession } from "next-auth/react";
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
-import { redirect } from "next/dist/server/api-utils";
+import { GetServerSidePropsContext } from "next";
 
 const Profile = () => {
   const { data: session, status } = useSession();
@@ -10,7 +9,9 @@ const Profile = () => {
     return (
       <div className="flex flex-col justify-center items-center">
         <p>Welcome, {session.user?.name}</p>
-        <button onClick={() => signOut()}>Sign out</button>
+        <button onClick={() => signOut({ redirect: false, callbackUrl: "/" })}>
+          Sign out
+        </button>
       </div>
     );
   } else {
