@@ -1,13 +1,14 @@
 import React from "react";
-import { useSession, signIn } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Login = () => {
   const { data: session } = useSession();
   return (
     <>
       {session ? (
-        <div className="flex flex-col justify-center items center">
+        <div className="flex flex-col justify-center items-center">
           <p>Welcome, {session.user?.name}</p>
+          <button onClick={() => signOut()}>Sign out</button>
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center">
