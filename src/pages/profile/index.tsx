@@ -4,7 +4,22 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { redirect } from "next/dist/server/api-utils";
 
 const Profile = () => {
-  return <div>Profile</div>;
+  const { data: session, status } = useSession();
+
+  if (status === "authenticated") {
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <p>Welcome, {session.user?.name}</p>
+        <button onClick={() => signOut()}>Sign out</button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <p>You are not signed in.</p>
+      </div>
+    );
+  }
 };
 
 export default Profile;
