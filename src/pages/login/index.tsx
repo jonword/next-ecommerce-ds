@@ -1,37 +1,22 @@
 import React from "react";
-import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Login = () => {
+  const { data: session } = useSession();
   return (
-    <div className="h-[500px] flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center p-4">
-        <form className="flex flex-col w-40 gap-2">
-          <label>Username:</label>
-          <input
-            className="border px-1 border-gray-600 rounded-sm"
-            type="text"
-          />
-          <label>Password:</label>
-          <input
-            className="border px-1 border-gray-600 rounded-sm"
-            type="password"
-          />
-        </form>
-        <div className="mt-2 flex flex-col gap-1 items-center">
-          <button className="border text-white p-1 px-3 bg-zinc-700 hover:bg-emerald-800 duration-150">
-            Login
-          </button>
-          <div className="flex gap-2 items-center">
-            <p>Dont have an account?</p>
-            <Link href="/signup">
-              <button className="hover:underline">
-                <span className="text-lg">Sign up</span>
-              </button>
-            </Link>
-          </div>
+    <>
+      {session ? (
+        <div className="flex flex-col justify-center items-center">
+          <p>Welcome, {session.user?.name}</p>
+          <button onClick={() => signOut()}>Sign out</button>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div className="flex flex-col justify-center items-center">
+          <p>You are not signed in.</p>
+          <button onClick={() => signIn()}>Sign in</button>
+        </div>
+      )}
+    </>
   );
 };
 
