@@ -1,7 +1,35 @@
 import React from "react";
 import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Login = () => {
+  const { data: session } = useSession();
+
+  if (session) {
+    return (
+      <div>
+        <p>{session.user?.name}</p>
+        <button
+          className="bg-zinc-800 p-4 px-6 text-zinc-300"
+          onClick={() => signOut()}
+        >
+          Sign out
+        </button>
+      </div>
+    );
+  } else {
+    return (
+      <div className="h-[500px] flex items-center justify-center flex-col gap-4">
+        <p className="text-3xl">You are not signed in!</p>
+        <button
+          className="bg-zinc-800 p-4 px-6 text-zinc-300"
+          onClick={() => signIn()}
+        >
+          Sign in
+        </button>
+      </div>
+    );
+  }
   return (
     <div className="h-[500px] flex items-center justify-center">
       <div className="flex flex-col items-center justify-center p-4">
