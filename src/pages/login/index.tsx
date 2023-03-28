@@ -6,24 +6,18 @@ const Login = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  if (session) {
-    router.push("/profile");
-  } else {
-    return (
-      <div className="h-[500px] flex w-full  items-center justify-center">
-        <div className="border h-40 w-96">
-          <div className="flex flex-col justify-center items-center">
-            <p>You are not signed in.</p>
-            <button
-              onClick={() => signIn("google", { callbackUrl: "/profile" })}
-            >
-              Sign in
-            </button>
-          </div>
+  return (
+    <div className="h-[500px] flex w-full  items-center justify-center">
+      <div className="border h-40 w-96">
+        <div className="flex flex-col justify-center items-center">
+          <p>You are not signed in.</p>
+          <button onClick={() => signIn("google", { callbackUrl: "/profile" })}>
+            Sign in
+          </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default Login;
