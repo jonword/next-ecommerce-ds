@@ -8,8 +8,11 @@ const Login = () => {
   return (
     <div className="h-[500px] flex w-full  items-center justify-center">
       <div className="flex border h-36 w-80 flex-col justify-center items-center">
-        <button onClick={() => signIn("google", { callbackUrl: "/profile" })}>
-          Sign in
+        <button
+          onClick={() => signIn("google", { callbackUrl: "/profile" })}
+          className="border p-4"
+        >
+          Sign In With Google
         </button>
       </div>
     </div>
