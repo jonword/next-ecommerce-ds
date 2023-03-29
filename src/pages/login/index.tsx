@@ -1,5 +1,5 @@
 import React from "react";
-import { signIn, getProviders } from "next-auth/react";
+import { signIn, getProviders, getSession } from "next-auth/react";
 import { GetServerSidePropsContext } from "next";
 import { getServerSession } from "next-auth/next";
 import NextAuth from "../api/auth/[...nextauth]";
@@ -19,7 +19,7 @@ const Login = () => {
 export default Login;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getServerSession(context.req, context.res, NextAuth);
+  const session = await getSession(context);
 
   if (session) {
     return { redirect: { destination: "/profile" } };
