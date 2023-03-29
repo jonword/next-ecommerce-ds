@@ -1,21 +1,16 @@
 import React from "react";
-import { useSession, signIn, getProviders } from "next-auth/react";
+import { signIn, getProviders } from "next-auth/react";
 import { GetServerSidePropsContext } from "next";
 import { getServerSession } from "next-auth/next";
 import NextAuth from "../api/auth/[...nextauth]";
 
 const Login = () => {
-  const { data: session } = useSession();
-
   return (
     <div className="h-[500px] flex w-full  items-center justify-center">
-      <div className="border h-40 w-96">
-        <div className="flex flex-col justify-center items-center">
-          <p>You are signed out.</p>
-          <button onClick={() => signIn("google", { callbackUrl: "/profile" })}>
-            Sign in
-          </button>
-        </div>
+      <div className="flex border h-36 w-80 flex-col justify-center items-center">
+        <button onClick={() => signIn("google", { callbackUrl: "/profile" })}>
+          Sign in
+        </button>
       </div>
     </div>
   );

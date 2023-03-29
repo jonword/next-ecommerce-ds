@@ -7,22 +7,23 @@ const Profile = () => {
 
   if (status === "authenticated") {
     return (
-      <div className="flex flex-col justify-center items-center">
-        <div className="flex">
-          <p>
-            Welcome,
-            {session.user?.name}
-          </p>
+      <div className="h-screen w-full">
+        <div className="flex p-4 flex-col justify-center items-center">
+          <div>
+            <p>Welcome, {session.user?.name}</p>
+          </div>
+          <button
+            onClick={() => signOut({ redirect: false, callbackUrl: "/login" })}
+          >
+            Sign out
+          </button>
         </div>
-        <button onClick={() => signOut({ redirect: false, callbackUrl: "/" })}>
-          Sign out
-        </button>
       </div>
     );
   } else {
     return (
-      <div>
-        <p>You are not signed in.</p>
+      <div className="flex items-center justify-center">
+        <p className="text-2xl">You are signed out.</p>
       </div>
     );
   }
