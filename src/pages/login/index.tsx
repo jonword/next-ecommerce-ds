@@ -1,6 +1,9 @@
 import React from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn, signOut, getProviders } from "next-auth/react";
 import { useRouter } from "next/router";
+import { GetServerSidePropsContext } from "next";
+import { getServerSession } from "next-auth/next";
+import Nextauth from "../api/auth/[...nextauth]";
 
 const Login = () => {
   const router = useRouter();
@@ -21,3 +24,16 @@ const Login = () => {
 };
 
 export default Login;
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getServerSession(context.req, context.res, Nextauth);
+
+  if (session) {
+    return { redirect: { destination: "/profile" } };
+  }
+  const providers = await getProviders();
+
+  return {
+    props: { providers: providers ?? [] },
+  };
+}
