@@ -32,9 +32,17 @@ const Profile = () => {
 export default Profile;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+      },
+    };
+  }
   return {
     props: {
-      session: await getSession(context),
+      session,
     },
   };
 }
