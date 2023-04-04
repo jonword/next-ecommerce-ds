@@ -7,7 +7,7 @@ const Profile = () => {
 
   return (
     <div className="h-screen w-full">
-      {status === "authenticated" ? (
+      {session ? (
         <div className="flex p-4 flex-col justify-center items-center">
           <div>
             <p>Welcome, {session.user?.name}</p>
