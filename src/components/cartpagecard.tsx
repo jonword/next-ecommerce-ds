@@ -16,16 +16,21 @@ const CartPageCard = ({ cartItem }: Props) => {
     <>
       <div className="flex h-48 w-full items-center gap-8 border-b p-2">
         <div className="flex flex-col p-2">
-          <Image
-            src={cartItem.product.image}
-            alt={cartItem.product.name}
-            height={100}
-            width={200}
-            className=""
-          />
+          <Link href={`/product/${cartItem.product.id}`}>
+            <Image
+              src={cartItem.product.image}
+              alt={cartItem.product.name}
+              height={100}
+              width={200}
+              className=""
+            />
+          </Link>
         </div>
         <div className="pr-2 w-full flex flex-col">
-          <p className="font-semibold">{cartItem.product.name}</p>
+          <Link href={`/product/${cartItem.product.id}`}>
+            <p className="font-semibold">{cartItem.product.name}</p>
+          </Link>
+
           <p className="">{formatCurrency(cartItem.product.price)}</p>
         </div>
         <div>
