@@ -3,7 +3,7 @@ import { useSession, signOut, getSession } from "next-auth/react";
 import { GetServerSidePropsContext } from "next";
 
 const Profile = () => {
-  const { data: session, status } = useSession({ required: true });
+  const { data: session, status } = useSession();
 
   return (
     <div className="h-screen w-full">

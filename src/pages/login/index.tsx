@@ -32,7 +32,7 @@ const Login = () => {
 
 export default Login;
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+/* export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
 
   if (session) {
@@ -43,4 +43,4 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     props: { providers: providers ?? [] },
   };
-}
+} */
