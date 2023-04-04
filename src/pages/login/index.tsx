@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { signIn, getProviders, getSession } from "next-auth/react";
 import { GetServerSidePropsContext } from "next";
 import { getServerSession } from "next-auth/next";
-import NextAuth from "../api/auth/[...nextauth]";
+import NextAuth, { authOptions } from "../api/auth/[...nextauth]";
 
 const Login = () => {
   return (
@@ -32,15 +32,15 @@ const Login = () => {
 
 export default Login;
 
-/* export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getSession(context);
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getServerSession(context.req, context.res, authOptions);
 
-  if (session) {
-    return { redirect: { destination: "/profile" } };
+  if (!session) {
+    return { redirect: { destination: "/", permanent: false } };
   }
   const providers = await getProviders();
 
   return {
     props: { providers: providers ?? [] },
   };
-} */
+}

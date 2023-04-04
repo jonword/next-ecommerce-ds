@@ -1,6 +1,8 @@
 import React from "react";
 import { useSession, signOut, getSession } from "next-auth/react";
 import { GetServerSidePropsContext } from "next";
+import { authOptions } from "../api/auth/[...nextauth]";
+import { getServerSession } from "next-auth/next";
 
 const Profile = () => {
   const { data: session, status } = useSession();
@@ -30,7 +32,7 @@ const Profile = () => {
 export default Profile;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getSession(context);
+  const session = await getServerSession(context.req, context.res, authOptions);
   if (!session) {
     return {
       redirect: {
