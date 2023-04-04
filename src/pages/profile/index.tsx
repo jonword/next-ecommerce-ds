@@ -3,11 +3,11 @@ import { useSession, signOut, getSession } from "next-auth/react";
 import { GetServerSidePropsContext } from "next";
 
 const Profile = () => {
-  const { data: session, status } = useSession();
+  const { data: session, status } = useSession({ required: true });
 
   return (
     <div className="h-screen w-full">
-      {session ? (
+      {status === "authenticated" ? (
         <div className="flex p-4 flex-col justify-center items-center">
           <div>
             <p>Welcome, {session.user?.name}</p>

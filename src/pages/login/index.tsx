@@ -11,7 +11,7 @@ const Login = () => {
       <div className="flex border rounded-md shadow-md h-80 w-96 flex-col justify-center items-center gap-4">
         <button
           onClick={() => signIn("google", { callbackUrl: "/profile" })}
-          className="border p-4 flex items-center gap-2 hover:bg-sky-500 hover:text-white duration-200 shadow-md"
+          className="border p-4 flex items-center gap-2 hover:bg-sky-600 hover:text-white duration-200 shadow-md"
         >
           <FcGoogle />
           <p className="font-semibold">Sign In With Google</p>
