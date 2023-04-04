@@ -22,7 +22,7 @@ const Login = () => {
           <label>Password:</label>
           <input className="border px-1" />
         </form>
-        <button className="border rounded-md mt-2 w-24 text-white bg-zinc-700 hover:bg-emerald-900">
+        <button className="border rounded-sm p-2 mt-2 w-24 text-white bg-zinc-700 hover:bg-emerald-900">
           Log in
         </button>
       </div>
