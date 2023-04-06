@@ -45,7 +45,7 @@ const Cart = () => {
             </Link>
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:mx-60 pb-12">
+          <div className="flex flex-col h-screen lg:flex-row lg:justify-between gap-8 lg:mx-60 pb-12">
             <div className="w-full">
               {cart.map((item) => (
                 <CartPageCard cartItem={item} key={item.product.id} />
