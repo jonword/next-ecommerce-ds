@@ -7,7 +7,7 @@ import NextAuth, { authOptions } from "../api/auth/[...nextauth]";
 
 const Login = () => {
   return (
-    <div className="h-[500px] flex w-full items-center justify-center">
+    <div className="h-screen flex w-full items-center justify-center">
       <div className="flex border rounded-md shadow-md h-80 w-96 flex-col justify-center items-center gap-4">
         <button
           onClick={() => signIn("google", { callbackUrl: "/profile" })}
