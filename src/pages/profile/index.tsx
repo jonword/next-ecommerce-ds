@@ -11,14 +11,29 @@ const Profile = () => {
     <div className="h-screen w-full">
       {status === "authenticated" ? (
         <div className="flex p-4 flex-col justify-center items-center">
-          <div>
-            <p>Welcome, {session.user?.name}</p>
+          <div className="flex justify-between h-full w-full px-4">
+            <p className="text-2xl font-bold">Hi, {session.user?.name}</p>
+            <button
+              onClick={() =>
+                signOut({ redirect: false, callbackUrl: "/login" })
+              }
+            >
+              Sign out
+            </button>
           </div>
-          <button
-            onClick={() => signOut({ redirect: false, callbackUrl: "/login" })}
-          >
-            Sign out
-          </button>
+          <div className="mt-10 h-screen">
+            <ul className="flex gap-6 text-xl">
+              <li className="hover:border-b-2 pb-2 border-b-gray-600 hover:cursor-pointer">
+                Feed
+              </li>
+              <li className="hover:border-b-2 pb-2 border-b-gray-600 hover:cursor-pointer">
+                Orders
+              </li>
+              <li className="hover:border-b-2 pb-2 border-b-gray-600 hover:cursor-pointer">
+                Account
+              </li>
+            </ul>
+          </div>
         </div>
       ) : (
         <div className="flex items-center justify-center">
