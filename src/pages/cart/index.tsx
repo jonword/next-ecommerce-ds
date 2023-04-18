@@ -77,7 +77,7 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        <div>
+        <div className="h-screen">
           <h1 className="mt-4 pl-4 text-center text-xl">Your cart is empty.</h1>
           <div className="mx-60 my-4" />
           <div className="flex pl-4 pt-4 justify-center items-center">

@@ -3,6 +3,7 @@ import { useSession, signOut, getSession } from "next-auth/react";
 import { GetServerSidePropsContext } from "next";
 import { authOptions } from "../api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
+import Image from "next/image";
 
 const Profile = () => {
   const { data: session, status } = useSession();
