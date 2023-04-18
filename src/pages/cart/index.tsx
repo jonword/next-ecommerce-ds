@@ -21,7 +21,7 @@ const Cart = () => {
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     if (query.get("success")) {
-      console.log("Order laced! You will recieve an email confirmation.");
+      console.log("Order placed! You will recieve an email confirmation.");
     }
 
     if (query.get("canceled")) {
