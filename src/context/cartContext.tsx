@@ -1,5 +1,5 @@
-import { Products } from "@prisma/client";
 import { createContext, useContext, ReactNode, useState } from "react";
+import { useLocalStorage } from "@/util/localstorage";
 
 export interface CartItem {
   id: number;
@@ -14,6 +14,8 @@ type CartContext = {
   getItemQty: (id: number) => number;
   addToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
+  cartQty: number;
+  cart: CartItem[];
 };
 
 const CartContext = createContext({} as CartContext);
@@ -23,14 +25,16 @@ export function useCart() {
 }
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cart, setCart] = useLocalStorage<CartItem[]>("cart", []);
+
+  const cartQty = cart.reduce((qty, item) => item.qty + qty, 0);
 
   function getItemQty(id: number) {
-    return cartItems.find((item) => item.id === id)?.qty || 0;
+    return cart.find((item) => item.id === id)?.qty || 0;
   }
 
   function addToCart(id: number) {
-    setCartItems((currItems) => {
+    setCart((currItems) => {
       if (currItems.find((item) => item.id === id)?.qty === 1) {
         return [...currItems, { id, qty: 1 }];
       } else {
@@ -46,12 +50,15 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   function removeFromCart(id: number) {
-    setCartItems((currItems) => {
+    setCart((currItems) => {
       return currItems.filter((item) => item.id !== id);
     });
   }
+
   return (
-    <CartContext.Provider value={{ getItemQty, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ getItemQty, addToCart, removeFromCart, cartQty, cart }}
+    >
       {children}
     </CartContext.Provider>
   );
