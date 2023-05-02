@@ -3,12 +3,18 @@ import { Products } from "@prisma/client";
 
 type Props = {
   products: Products[];
+  categories: string[];
   selected: string;
   onCategoryChange: (category: string) => void;
 };
 
-const Filter = ({ products, selected, onCategoryChange }: Props) => {
-  //const [selectedCategory, setSelectedCategory] = useState("");
+const Filter = ({
+  products,
+  categories,
+  selected,
+  onCategoryChange,
+}: Props) => {
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const handleClick = (category: string) => {
     onCategoryChange(category);
