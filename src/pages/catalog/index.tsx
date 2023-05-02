@@ -14,11 +14,11 @@ interface Props {
 const Catalog = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps> & Props) => {
-  const [category, setCategory] = useState("");
+  const [selectedcategory, setSelectedCategory] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(data);
 
   const handleCategoryChange = (category: string) => {
-    setCategory(category);
+    setSelectedCategory(category);
     if (category === "") {
       setFilteredProducts(data);
     } else {
@@ -27,20 +27,29 @@ const Catalog = ({
     }
   };
 
+  const categories = [...new Set(data.map((product) => product.category))];
+
   return (
     <>
       <div className="pl-6 pt-4">
         <Filter
+          categories={categories}
           products={data}
           onCategoryChange={handleCategoryChange}
-          selected={category}
+          selected={selectedcategory}
         />
       </div>
       <div className="m-8" />
       <div className="flex h-full flex-wrap justify-evenly gap-8 pt-2 mb-16">
-        {data.map((p) => (
-          <CatalogCard key={p.id} product={p} />
-        ))}
+        {selectedcategory === "" ? (
+          data.map((p) => <CatalogCard key={p.id} product={p} />)
+        ) : (
+          <div>
+            {filteredProducts.map((p) => (
+              <CatalogCard key={p.id} product={p} />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
