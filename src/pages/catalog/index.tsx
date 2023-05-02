@@ -1,11 +1,9 @@
 import CatalogCard from "@/components/catalogcard";
+import Filter from "@/components/filter";
 import type { Products } from "@prisma/client";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import prisma from "@/lib/prisma";
 import { useState } from "react";
-import { products } from "@/data/data";
-import Filter from "@/components/filter";
-import { useSelector } from "react-redux";
 
 interface Props {
   data: Products[];
