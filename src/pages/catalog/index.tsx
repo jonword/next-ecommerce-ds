@@ -44,7 +44,7 @@ const Catalog = ({
         {selectedcategory === "" ? (
           data.map((p) => <CatalogCard key={p.id} product={p} />)
         ) : (
-          <div>
+          <div className="flex h-full flex-wrap justify-evenly gap-8 pt-2 mb-16">
             {filteredProducts.map((p) => (
               <CatalogCard key={p.id} product={p} />
             ))}
