@@ -1,5 +1,6 @@
 import { createContext, useContext, ReactNode, useState } from "react";
 import { useLocalStorage } from "../util/useLocalStorage";
+import type { Products } from "@prisma/client";
 
 export interface CartItem {
   id: number;
