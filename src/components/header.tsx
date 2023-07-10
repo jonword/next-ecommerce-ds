@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="flex relative h-8 justify-end items-center border-b border-slate-200 py-4 px-8">
+      <nav className="flex relative h-8 justify-end items-center border-b border-slate-100 py-8 px-8">
         <div className="flex items-center justify-center">
           <Link href="/login">
             <button>
@@ -42,7 +42,7 @@ const Header = () => {
             <div
               className={
                 cart.length
-                  ? `quantity-indicator absolute right-10 top-2.5 flex h-2 w-2 p-2 animate-pingOnce items-center justify-center text-gray-100 rounded-full bg-pink-700 text-xs`
+                  ? `quantity-indicator absolute right-6 top-2.5 flex h-2 w-2 p-2 animate-pingOnce items-center justify-center text-gray-100 rounded-full bg-pink-700 text-xs`
                   : `hidden`
               }
               key={total}
@@ -59,7 +59,7 @@ const Header = () => {
         <div className="flex pt-4 pl-4">
           <Link href="/">
             <h1
-              className={` ${playfair.className} font-title text-4xl tracking-widest text-stone-900`}
+              className={` ${playfair.className} font-title text-5xl tracking-widest text-stone-900`}
             >
               DRUMSHOP
             </h1>
