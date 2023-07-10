@@ -24,21 +24,21 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex h-20 w-full items-end pl-8 justify-center bg-zinc-800 pb-6 shadow-sm shadow-zinc-500 ">
-        <div className=" text-yellow-100">
+      <header className="flex h-20 w-full items-end pl-8 pb-6 border-b">
+        <div className="text-green-900">
           <GiDrumKit size={30} />
         </div>
-        <div className="flex  pt-4 pl-4">
+        <div className="flex pt-4 pl-4">
           <Link href="/">
             <h1
-              className={` ${playfair.className} font-title text-4xl tracking-widest text-stone-300`}
+              className={` ${playfair.className} font-title text-4xl tracking-widest text-stone-900`}
             >
               DRUMSHOP
             </h1>
           </Link>
         </div>
       </header>
-      <nav className="flex relative h-16 justify-end items-center border-b border-slate-200 px-12">
+      <nav className="flex relative h-8 justify-end items-center border-b border-slate-200 py-4 px-8">
         <div className="flex items-center justify-center">
           <Link href="/login">
             <button>
