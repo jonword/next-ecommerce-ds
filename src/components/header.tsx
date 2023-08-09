@@ -24,47 +24,47 @@ const Header = () => {
 
   return (
     <>
-      <nav className="flex relative h-8 justify-end items-center border-b border-slate-100 py-8 px-8">
-        <div className="flex items-center justify-center">
-          <Link href="/login">
-            <button>
-              <HiUser
-                size={25}
-                className="text-zinc-800 hover:text-zinc-600 duration-200"
-              />
-            </button>
-          </Link>
-          <button onClick={toggleCart}>
-            <HiShoppingCart
-              size={25}
-              className="text-zinc-800 hover:text-zinc-600 duration-200"
-            />
-            <div
-              className={
-                cart.length
-                  ? `quantity-indicator absolute right-6 top-2.5 flex h-2 w-2 p-2 animate-pingOnce items-center justify-center text-gray-100 rounded-full bg-pink-700 text-xs`
-                  : `hidden`
-              }
-              key={total}
-            >
-              {total}
-            </div>
-          </button>
-        </div>
-      </nav>
-      <header className="flex h-20 w-full justify-center items-end pl-8 pb-6 border-b">
-        <div className="text-green-900">
-          <GiDrumKit size={30} />
-        </div>
-        <div className="flex pt-4 pl-4">
+      <header className="flex h-20 w-full items-center justify-between border-b px-6">
+        <div className="flex items-center gap-2 justify-start">
+          <div className="text-green-900">
+            <GiDrumKit size={20} />
+          </div>
           <Link href="/">
             <h1
-              className={` ${playfair.className} font-title text-5xl tracking-widest text-stone-900`}
+              className={` ${playfair.className} font-title text-2xl tracking-widest text-stone-900`}
             >
               DRUMSHOP
             </h1>
           </Link>
         </div>
+        <nav className="flex relative">
+          <div className="flex items-center justify-center">
+            <Link href="/login">
+              <button>
+                <HiUser
+                  size={20}
+                  className="text-zinc-800 hover:text-zinc-600 duration-200"
+                />
+              </button>
+            </Link>
+            <button onClick={toggleCart}>
+              <HiShoppingCart
+                size={20}
+                className="text-zinc-800 hover:text-zinc-600 duration-200"
+              />
+              <div
+                className={
+                  cart.length
+                    ? `quantity-indicator absolute -right-2 -top-2 flex h-1 w-1 p-2 animate-pingOnce items-center justify-center text-gray-100 rounded-full bg-pink-700 text-[10px]`
+                    : `hidden`
+                }
+                key={total}
+              >
+                {total}
+              </div>
+            </button>
+          </div>
+        </nav>
       </header>
 
       {/*===SIDEBAR===*/}
