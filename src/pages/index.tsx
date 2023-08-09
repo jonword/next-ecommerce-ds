@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Marquee from "react-fast-marquee";
 
 const Home: NextPage = () => {
   return (
@@ -12,10 +13,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-full w-full ">
-        <div className="p-24 flex h-screen w-full flex-col items-center">
+        <div className="p-32 flex h-screen w-full flex-col items-center gap-10">
+          <Marquee
+            speed={50}
+            className="text-3xl text-gray-700 tracking-widest"
+          >
+            Welcome to Drumshop
+          </Marquee>
           <div className="flex w-64 justify-center p-2">
             <Link href="/catalog">
-              <button className="border-2 border-slate-500 bg-zinc-700 py-4 px-16 text-xl text-white duration-300 hover:bg-stone-600">
+              <button className="border-2 border-slate-500 bg-zinc-700 py-4 px-16 text-xl text-gray-200 duration-300 hover:bg-stone-600">
                 Shop Now
               </button>
             </Link>
