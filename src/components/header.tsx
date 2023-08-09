@@ -31,7 +31,7 @@ const Header = () => {
           </div>
           <Link href="/">
             <h1
-              className={` ${playfair.className} font-title text-2xl tracking-widest text-stone-900`}
+              className={` ${playfair.className} font-title text-2xl tracking-widest text-stone-700`}
             >
               DRUMSHOP
             </h1>
@@ -43,14 +43,14 @@ const Header = () => {
               <button>
                 <HiUser
                   size={20}
-                  className="text-zinc-800 hover:text-zinc-600 duration-200"
+                  className="text-zinc-700 hover:text-zinc-600 duration-200"
                 />
               </button>
             </Link>
             <button onClick={toggleCart}>
               <HiShoppingCart
                 size={20}
-                className="text-zinc-800 hover:text-zinc-600 duration-200"
+                className="text-zinc-700 hover:text-zinc-600 duration-200"
               />
               <div
                 className={

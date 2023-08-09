@@ -21,7 +21,7 @@ const CartCard = ({ cartItem }: Props) => {
             alt={cartItem.product.name}
             height={200}
             width={300}
-            className=""
+            className="w-auto h-auto"
           />
         </div>
         <div className="pr-2 w-full flex flex-col">

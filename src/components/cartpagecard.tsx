@@ -22,7 +22,7 @@ const CartPageCard = ({ cartItem }: Props) => {
               alt={cartItem.product.name}
               height={100}
               width={200}
-              className=""
+              className="w-auto h-auto"
             />
           </Link>
         </div>
